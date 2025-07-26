@@ -1,0 +1,258 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+/* General Body Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f7f6;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 100vh;
+    color: #333;
+}
+
+.container {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 1000px;
+    box-sizing: border-box;
+    margin-bottom: 30px;
+}
+
+/* Header Styles */
+header {
+    text-align: center;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 20px;
+}
+
+header h1 {
+    color: #2c3e50;
+    font-size: 2.2em;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 1.1em;
+    color: #555;
+    margin-top: 0;
+}
+nav {
+    margin-top: 20px;
+    display: flex; /* Make nav a flex container */
+    justify-content: flex-end; /* Push content to the right */
+    width: 100%; /* Ensure nav takes full width to align content */
+    padding-right: 10px; /* Optional: Add a little padding from the right edge */
+    box-sizing: border-box; /* Include padding in width calculation */
+
+}
+
+#manager-name {
+    font-weight: bold;
+    color: #007bff;
+}
+
+/* REMOVED NAVIGATION & BUTTONS CSS RULES THAT ARE NO LONGER USED BY HTML */
+/*
+nav {
+    margin-top: 20px;
+}
+
+.back-link, .logout-button, .action-button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.back-link {
+    background-color: #6c757d;
+    color: white;
+}
+
+.back-link:hover {
+    background-color: #5a6268;
+    transform: translateY(-2px);
+}
+
+.logout-button {
+    background-color: #dc3545;
+    color: white;
+}
+
+.logout-button:hover {
+    background-color: #c82333;
+    transform: translateY(-2px);
+}
+*/
+
+/* Keep action-button and export-button if they are used by the filter/export buttons */
+
+.logout-button {
+    background-color: #dc3545;
+    color: white;
+}
+
+.logout-button:hover {
+    background-color: #c82333;
+    transform: translateY(-2px);
+}
+.action-button {
+    background-color: #007bff;
+    color: white;
+}
+
+.action-button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+.export-button {
+    background-color: #28a745;
+}
+
+.export-button:hover {
+    background-color: #218838;
+}
+
+/* Controls Section (Filters) */
+.controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: center;
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #e9ecef;
+    border-radius: 8px;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.controls label {
+    font-weight: bold;
+    color: #495057;
+}
+
+.controls input[type="month"] {
+    padding: 10px 15px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    font-size: 1em;
+    width: 180px;
+    box-sizing: border-box;
+}
+
+/* Data Display Sections */
+.data-display h2 {
+    color: #2c3e50;
+    font-size: 1.8em;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.data-section {
+    background-color: #f8f9fa;
+    border: 1px solid #e2e6ea;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 25px;
+    overflow-x: auto;
+}
+
+.data-section p {
+    text-align: center;
+    color: #6c757d;
+    font-style: italic;
+}
+
+/* Table Styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+table th, table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #dee2e6;
+}
+
+table th {
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.9em;
+}
+
+table tbody tr:nth-child(even) {
+    background-color: #e9f7ff;
+}
+
+table tbody tr:hover {
+    background-color: #d1ecf1;
+}
+
+/* Footer Styles */
+footer {
+    text-align: center;
+    margin-top: auto;
+    padding: 20px;
+    color: #6c757d;
+    font-size: 0.9em;
+    width: 100%;
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    header h1 {
+        font-size: 1.8em;
+    }
+
+    .controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .controls input[type="month"],
+    /* REMOVED: .back-link, .logout-button, */ .action-button {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+
+    .container {
+        border-radius: 5px;
+    }
+
+    header h1 {
+        font-size: 1.5em;
+    }
+}

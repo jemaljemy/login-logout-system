@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');  /* Imports the Poppins font from Google Fonts. Place at top of CSS to use 'Poppins' in font-family. */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins','sans-serif';
+}
+
+h1 {
+    color: #FFFF;
+    font-size: 2.5em;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgb(0,0,0,0.7);
+}
+section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    background-image:  url('../img/army-salvation.jpg'),url('../img/bg.jpg');
+    background-position: top 20px center ,center center;
+    background-size: 170px auto, cover;
+    background-repeat: no-repeat, no-repeat;
+    background-color: #000;
+    animation: animateBg 5s linear infinite
+}
+
+@keyframes animateBg {
+    100%{
+        filter: hue-rotate(360deg);
+    }
+}
+
+.login-box {
+    position: relative;
+    width: 400px;
+    height: 450px;
+    top: 130px;
+    background: transparent;
+    border: 2px solid rgb(255,255,255,5);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(15px);
+}
+
+h2 {
+    font-size: 2em;
+    color: white;
+    text-align: center;
+}
+
+.input-box {
+    position: relative;
+    width: 310px;
+    margin: 30px 0;
+    border-bottom: 2px solid white;
+}
+
+.input-box label {
+    position: absolute;
+    top: 50%;
+    left: 40px;
+    transform: translateY(-50%);
+    font-size: 1em;
+    color: white;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.input-box input:focus~label,
+.input-box input:valid~label {
+    top: -5px;
+    left: 5px;
+}
+.input-box input {
+    width: 100%;
+    height: 50px;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    color: white;
+    padding: 0 40px 0 40px;
+}
+
+
+/* General Icon Styling (shared properties) */
+/* This rule now only sets shared properties, NOT positioning */
+.input-box .icon {
+    position: absolute; /* Keep absolute positioning here */
+    color: #0056b3; /* Blue icon color */
+    font-size: 1.2em;
+    line-height: 50px; /* Vertically centers the icon based on input height */
+    top: 50%; /* Added for vertical centering consistency */
+    transform: translateY(-50%); /* Added for vertical centering consistency */
+    z-index: 10; /* Ensure icons are above the input */
+}
+
+/* Specific Styling for the Lock Icon (left side) */
+.input-box .icon:not(.password-toggle) {
+    left: 10px; /* Position the lock icon on the left */
+    right: auto; /* Ensure it doesn't try to go right */
+}
+
+/* Specific Styling for the Password Toggle (eye icon, right side) */
+.input-box .icon.password-toggle {
+    position: absolute;
+    right: 10px; /* Position the eye icon on the right */
+    left: auto; /* Ensure it doesn't try to go left */
+    top: 50%; /* Position vertically centered */
+    transform: translateY(-50%); /* Adjust for perfect vertical centering */
+    cursor: pointer; /* Keep cursor pointer for interactivity */
+    color: #888; /* Icon color */
+    font-size: 1.2em; /* Adjust icon size */
+    z-index: 10; /* Ensure it's above the input */
+}
+
+
+.button1 {
+    width: 30%;
+    height: 40px;
+    margin-left: 60px;
+    background: white;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    cursor: pointer;
+    font-size: 1em;
+    color: black;
+    font-weight: 500;
+}
+
+.button2 {
+    width: 30%;
+    height: 40px;
+    margin-left: 15px;
+    background: white;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    cursor: pointer;
+    font-size: 1em;
+    color: black;
+    font-weight: 500;
+    
+}
+
+/* New positioning for #message, now that it's outside the section */
+#message {
+    position: absolute; /* Allows precise positioning relative to the body */
+    bottom: 60px; /* Position it from the bottom of the viewport */
+    left: 50%; /* Start from the middle horizontally */
+    transform: translateX(-50%); /* Shift it left by half its width to truly center */
+    width: 100%; /* Take full width to allow text-align: center */
+    max-width: 400px; /* Limit its width to match the login box */
+    text-align: center; /* Center the text inside the paragraph */
+    color: white; /* Ensure it's white (won't change now) */
+    font-size: 1.3em; /* Keep it larger */
+    font-weight: 700; /* Keep it bold */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8); /* Keep the text shadow */
+    z-index: 100; /* Ensure it's on top of other elements if overlapping */
+}

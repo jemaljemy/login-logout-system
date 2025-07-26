@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manager Login</title>
+    <!-- Link to the new manager login specific CSS file -->
+    <link rel="stylesheet" href="../cssFiles/management_login.css">
+    <!-- Include Ionicons for icons -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+<body>
+    <section> 
+        <h1 id="mainTitle1">Catherine Booth House</h1> 
+        <h1 id="mainTitle2">Management Access</h1> 
+        <div class="login-box">
+            <form id="managerLoginForm">
+                <h2>Login</h2>
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="person-circle-outline"></ion-icon></span>
+                    <input type="text" id="managerUsernameInput" required>
+                    <label>Manager Username</label>
+                </div>
+                <div class="input-box">
+                    <span class="icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
+                    <input type="password" id="managerPasswordInput" required>
+                    <label>Manager Password</label>
+                    <!-- IMPORTANT: This is the missing part! -->
+                    <span class="icon password-toggle" id="togglePassword">
+                        <ion-icon name="eye-outline"></ion-icon>
+                    </span>
+                </div>
+                <button class="button1" type="submit" id="managerLoginButton">Login</button>
+            </form>
+        </div>
+    </section>
+    <p id="message" style="text-align: center; color: #dc3545; margin-top: 20px; font-weight: bold;"></p>
+    <script src="../scriptFiles/script2.js"></script>
+</body>
+</html>

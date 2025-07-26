@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Management Dashboard - Staff Activity Logs</title>
+    <link rel="stylesheet" href="../cssFiles/management_style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Staff Activity Logs</h1>
+            <p>Welcome, <span id="manager-name">Management</span>!</p>
+                        <nav>
+                <button id="logout-manager-button" class="logout-button">Logout</button>
+            </nav>
+            </header>
+
+        <section class="controls">
+            <label for="month-filter">Select Month:</label>
+            <input type="month" id="month-filter" value="">
+            <button id="filter-button" class="action-button">Filter</button>
+            <button id="export-csv-button" class="action-button export-button">Export Monthly Summary to CSV</button>
+        </section>
+
+        <section class="data-display">
+            <h2>Monthly Hours Summary</h2>
+            <div id="monthly-summary-table" class="data-section">
+                <p>Loading monthly summary...</p>
+            </div>
+
+            <h2>Detailed Activity Logs</h2>
+            <div id="detailed-logs-table" class="data-section">
+                <p>Loading detailed logs...</p>
+            </div>
+        </section>
+
+        <footer class ="footer">
+            <p>&copy; 2025 Staff Login System</p>
+        </footer>
+    </div>
+    <script type="module" src="../scriptFiles/script3.js"></script>
+</body>
+</html>

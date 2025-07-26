@@ -1,0 +1,20 @@
+{
+  "name": "login-logout-system",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jemaljemy/login-logout-system.git"
+  },
+  "keywords": [],
+  "author": "Jamal Laqdiem<jlaqdiem@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jemaljemy/login-logout-system/issues"
+  },
+  "homepage": "https://github.com/jemaljemy/login-logout-system#readme",
+  "description": "System that track login/logout sessions for the staff workers"
+}
