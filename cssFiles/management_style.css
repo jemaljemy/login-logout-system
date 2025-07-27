@@ -1,10 +1,42 @@
 /* Import Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 
+/* Define CSS Variables for Colors (using RGB format) */
+:root {
+    /* Primary / Brand Colors */
+    --color-primary-blue: rgb(0, 123, 255);       /* #007bff */
+    --color-primary-blue-dark: rgb(0, 86, 179);    /* #0056b3 */
+
+    /* Neutral / Text Colors */
+    --color-light-body-bg: rgb(244, 247, 246);    /* #f4f7f6 - Body background */
+    --color-white: rgb(255, 255, 255);           /* #ffffff - Container background, table header text */
+    --color-dark-text: rgb(51, 51, 51);          /* #333 - General text */
+    --color-heading: rgb(44, 62, 80);            /* #2c3e50 - Header H1, Data display H2 */
+    --color-sub-text: rgb(85, 85, 85);           /* #555 - Header P */
+    --color-light-border: rgb(238, 238, 238);    /* #eee - Header border, Data display H2 border */
+    --color-medium-grey: rgb(108, 117, 125);     /* #6c757d - Back link, Footer, Data section P */
+    --color-dark-grey-label: rgb(73, 80, 87);    /* #495057 - Controls label */
+    --color-input-border: rgb(206, 210, 218);    /* #ced4da - Input border */
+    --color-controls-bg: rgb(233, 236, 239);     /* #e9ecef - Controls background */
+    --color-box-shadow-light: rgba(0, 0, 0, 0.1); /* rgba(0,0,0,0.1) - Container shadow */
+    --color-box-shadow-inset: rgba(0, 0, 0, 0.05);/* rgba(0,0,0,0.05) - Controls inset shadow */
+    --color-data-section-bg: rgb(248, 249, 250); /* #f8f9fa - Data section background */
+    --color-data-section-border: rgb(226, 230, 234); /* #e2e6ea - Data section border */
+    --color-table-border: rgb(222, 226, 230);    /* #dee2e6 - Table border */
+    --color-table-even-row-bg: rgb(233, 247, 255); /* #e9f7ff - Table even row background */
+    --color-table-hover-bg: rgb(209, 236, 241);  /* #d1ecf1 - Table hover background */
+
+    /* Action / Status Colors */
+    --color-danger-red: rgb(220, 53, 69);        /* #dc3545 - Logout button */
+    --color-danger-red-dark: rgb(200, 35, 51);   /* #c82333 - Logout button hover */
+    --color-success-green: rgb(40, 167, 69);     /* #28a745 - Export button */
+    --color-success-green-dark: rgb(33, 136, 56);/* #218838 - Export button hover */
+}
+
 /* General Body Styles */
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: #f4f7f6;
+    background-color: var(--color-light-body-bg);
     margin: 0;
     padding: 20px;
     display: flex;
@@ -12,14 +44,14 @@ body {
     justify-content: flex-start;
     align-items: center;
     min-height: 100vh;
-    color: #333;
+    color: var(--color-dark-text);
 }
 
 .container {
-    background-color: #ffffff;
+    background-color: var(--color-white);
     padding: 30px;
     border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 15px var(--color-box-shadow-light);
     width: 100%;
     max-width: 1000px;
     box-sizing: border-box;
@@ -30,21 +62,22 @@ body {
 header {
     text-align: center;
     margin-bottom: 30px;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid var(--color-light-border);
     padding-bottom: 20px;
 }
 
 header h1 {
-    color: #2c3e50;
+    color: var(--color-heading);
     font-size: 2.2em;
     margin-bottom: 10px;
 }
 
 header p {
     font-size: 1.1em;
-    color: #555;
+    color: var(--color-sub-text);
     margin-top: 0;
 }
+
 nav {
     margin-top: 20px;
     display: flex; /* Make nav a flex container */
@@ -52,80 +85,40 @@ nav {
     width: 100%; /* Ensure nav takes full width to align content */
     padding-right: 10px; /* Optional: Add a little padding from the right edge */
     box-sizing: border-box; /* Include padding in width calculation */
-
 }
 
 #manager-name {
     font-weight: bold;
-    color: #007bff;
-}
-
-/* REMOVED NAVIGATION & BUTTONS CSS RULES THAT ARE NO LONGER USED BY HTML */
-/*
-nav {
-    margin-top: 20px;
-}
-
-.back-link, .logout-button, .action-button {
-    display: inline-block;
-    padding: 10px 20px;
-    margin: 5px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1em;
-    text-decoration: none;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.back-link {
-    background-color: #6c757d;
-    color: white;
-}
-
-.back-link:hover {
-    background-color: #5a6268;
-    transform: translateY(-2px);
+    color: var(--color-primary-blue);
 }
 
 .logout-button {
-    background-color: #dc3545;
-    color: white;
+    transform: scale(1.2);
+    background-color: var(--color-danger-red);
+    color: var(--color-white);
 }
 
 .logout-button:hover {
-    background-color: #c82333;
+    background-color: var(--color-danger-red-dark);
     transform: translateY(-2px);
 }
-*/
 
-/* Keep action-button and export-button if they are used by the filter/export buttons */
-
-.logout-button {
-    background-color: #dc3545;
-    color: white;
-}
-
-.logout-button:hover {
-    background-color: #c82333;
-    transform: translateY(-2px);
-}
 .action-button {
-    background-color: #007bff;
-    color: white;
+    background-color: var(--color-primary-blue);
+    color: var(--color-white);
 }
 
 .action-button:hover {
-    background-color: #0056b3;
+    background-color: var(--color-primary-blue-dark);
     transform: translateY(-2px);
 }
 
 .export-button {
-    background-color: #28a745;
+    background-color: var(--color-success-green);
 }
 
 .export-button:hover {
-    background-color: #218838;
+    background-color: var(--color-success-green-dark);
 }
 
 /* Controls Section (Filters) */
@@ -136,19 +129,19 @@ nav {
     align-items: center;
     margin-bottom: 30px;
     padding: 20px;
-    background-color: #e9ecef;
+    background-color: var(--color-controls-bg);
     border-radius: 8px;
-    box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+    box-shadow: inset 0 1px 3px var(--color-box-shadow-inset);
 }
 
 .controls label {
     font-weight: bold;
-    color: #495057;
+    color: var(--color-dark-grey-label);
 }
 
 .controls input[type="month"] {
     padding: 10px 15px;
-    border: 1px solid #ced4da;
+    border: 1px solid var(--color-input-border);
     border-radius: 5px;
     font-size: 1em;
     width: 180px;
@@ -157,17 +150,17 @@ nav {
 
 /* Data Display Sections */
 .data-display h2 {
-    color: #2c3e50;
+    color: var(--color-heading);
     font-size: 1.8em;
     margin-top: 30px;
     margin-bottom: 15px;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid var(--color-light-border);
     padding-bottom: 10px;
 }
 
 .data-section {
-    background-color: #f8f9fa;
-    border: 1px solid #e2e6ea;
+    background-color: var(--color-data-section-bg);
+    border: 1px solid var(--color-data-section-border);
     border-radius: 8px;
     padding: 20px;
     margin-bottom: 25px;
@@ -176,7 +169,7 @@ nav {
 
 .data-section p {
     text-align: center;
-    color: #6c757d;
+    color: var(--color-medium-grey);
     font-style: italic;
 }
 
@@ -190,23 +183,23 @@ table {
 table th, table td {
     padding: 12px 15px;
     text-align: left;
-    border-bottom: 1px solid #dee2e6;
+    border-bottom: 1px solid var(--color-table-border);
 }
 
 table th {
-    background-color: #007bff;
-    color: white;
+    background-color: var(--color-primary-blue);
+    color: var(--color-white);
     font-weight: bold;
     text-transform: uppercase;
     font-size: 0.9em;
 }
 
 table tbody tr:nth-child(even) {
-    background-color: #e9f7ff;
+    background-color: var(--color-table-even-row-bg);
 }
 
 table tbody tr:hover {
-    background-color: #d1ecf1;
+    background-color: var(--color-table-hover-bg);
 }
 
 /* Footer Styles */
@@ -214,11 +207,10 @@ footer {
     text-align: center;
     margin-top: auto;
     padding: 20px;
-    color: #6c757d;
+    color: var(--color-medium-grey);
     font-size: 0.9em;
     width: 100%;
 }
-
 
 /* Responsive Design */
 @media (max-width: 768px) {
@@ -236,7 +228,7 @@ footer {
     }
 
     .controls input[type="month"],
-    /* REMOVED: .back-link, .logout-button, */ .action-button {
+    .action-button {
         width: 100%;
         margin-left: 0;
         margin-right: 0;

@@ -1,88 +1,116 @@
 /* Import Google Fonts - Poppins for consistency */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 
+/* Define CSS Variables for Colors (using RGB format) */
+:root {
+    /* Backgrounds */
+    --color-page-background: rgb(230, 238, 252); /* #e6eefc - Lighter blue background for manager page */
+    --color-login-box-background: rgb(255, 255, 255); /* #ffffff - White background for login box */
+
+    /* Text Colors */
+    --color-general-text: rgb(51, 51, 51);      /* #333 - General body text */
+    --color-main-title-1: rgb(231, 69, 69);     /* #e74545 - Main title 1 (reddish) */
+    --color-main-title-2: rgb(0, 64, 133);      /* #004085 - Main title 2 (darker blue) */
+    --color-login-heading: rgb(0, 86, 179);     /* #0056b3 - Blue heading for login box */
+    --color-label-text: rgb(0, 86, 179);        /* #0056b3 - Blue label color */
+    --color-label-focus: rgb(0, 123, 255);      /* #007bff - Lighter blue when label focused/valid */
+    --color-input-text: rgb(51, 51, 51);        /* #333 - Input field text color */
+    --color-button-text: rgb(255, 255, 255);    /* #ffffff - Button text color */
+    --color-toggle-icon: rgb(136, 136, 136);    /* #888 - Password toggle icon color */
+
+    /* Borders & Shadows */
+    --color-input-border: rgb(0, 86, 179);      /* #0056b3 - Blue border for inputs */
+    --color-shadow-light: rgba(0, 0, 0, 0.1);   /* rgba(0, 0, 0, 0.1) - Text shadow */
+    --color-box-shadow-medium: rgba(0, 0, 0, 0.2); /* rgba(0, 0, 0, 0.2) - Login box shadow */
+    --color-button-shadow-light: rgba(0, 123, 255, 0.3); /* rgba(0, 123, 255, 0.3) - Button shadow */
+    --color-button-shadow-dark: rgba(0, 123, 255, 0.4); /* rgba(0, 123, 255, 0.4) - Button hover shadow */
+
+    /* Button Colors */
+    --color-button-primary: rgb(0, 123, 255);   /* #007bff - Manager login button blue */
+    --color-button-primary-dark: rgb(0, 86, 179); /* #0056b3 - Darker blue on button hover */
+}
+
 /* General Body Styles */
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: #e6eefc; /* Lighter blue background for manager page */
+    background-color: var(--color-page-background); /* Lighter blue background for manager page */
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: center; /* Centers content horizontally if flex-direction is row, or vertically if column */
-    align-items: center;     /* Centers content vertically if flex-direction is row, or horizontally if column */
+    justify-content: center;
+    align-items: center;
     min-height: 100vh;
-    flex-direction: column; /* Stack children vertically */
-    color: #333;
-    overflow: hidden; /* Prevent scrollbars if content slightly overflows */
+    flex-direction: column;
+    color: var(--color-general-text);
+    overflow: hidden;
 }
 
 /* Main Title for Manager Page */
 #mainTitle1 {
-    color: #e74545; /* Darker blue for the main title */
+    color: var(--color-main-title-1); /* Darker blue for the main title */
     font-size: 2.5em;
     margin-bottom: 30px;
     text-align: center;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
-    width: 100%; /* Ensure title takes full width for proper centering within section */
+    text-shadow: 1px 1px 2px var(--color-shadow-light);
+    width: 100%;
 }
-#mainTitle2 {   
-    color: #004085; /* Darker blue for the main title */
+#mainTitle2 {
+    color: var(--color-main-title-2); /* Darker blue for the main title */
     font-size: 1.5em;
     margin-bottom: 30px;
     text-align: center;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
-    width: 100%; /* Ensure title takes full width for proper centering within section */
-} 
+    text-shadow: 1px 1px 2px var(--color-shadow-light);
+    width: 100%;
+}
 
 /* Section containing the title and login box */
 section {
-    display: flex; /* Make the section a flex container */
-    flex-direction: column; /* Stack its children (h1 and login-box) vertically */
-    justify-content: center; /* Center children vertically within the section */
-    align-items: center;     /* Center children horizontally within the section */
-    width: 100%; /* Ensure section takes full width to allow centering its children */
-    max-width: 400px; /* Optional: Limit section width to be slightly larger than login-box */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
 }
-
 
 /* Login Box Container */
 .login-box {
     position: relative;
     width: 380px;
-    height: 420px; /* You might want to adjust this height if content overflows after padding changes */
-    background: #ffffff; /* White background for the login box */
+    height: 420px;
+    background: var(--color-login-box-background);
     border-radius: 20px;
-    display: flex; /* Keep this to center the form inside */
-    justify-content: center; /* Keep for form centering */
-    align-items: center;     /* Keep for form centering */
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2); /* Stronger shadow */
-    overflow: hidden; /* Ensures rounded corners apply correctly */
-    padding: 20px; /* Add some internal padding */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 10px 25px var(--color-box-shadow-medium);
+    overflow: hidden;
+    padding: 20px;
 }
 
 /* Form Heading */
 .login-box h2 {
     font-size: 2em;
-    color: #0056b3; /* Blue heading for manager login */
+    color: var(--color-login-heading);
     text-align: center;
     margin-bottom: 30px;
 }
 
 /* Input Box Styling - This is the parent for relative positioning of icons */
 .input-box {
-    position: relative; /* Crucial for absolute positioning of child icons */
+    position: relative;
     width: 310px;
     margin: 30px 0;
-    border-bottom: 2px solid #0056b3; /* Blue border for inputs */
+    border-bottom: 2px solid var(--color-input-border);
 }
 
 /* Label Styling - Adjusted 'left' to make space for the left icon */
 .input-box label {
     position: absolute;
     top: 50%;
-    left: 40px; /* Adjusted: Start label after the left icon's space */
+    left: 40px;
     transform: translateY(-50%);
-    color: #0056b3; /* Blue label color */
+    color: var(--color-label-text);
     font-size: 1em;
     pointer-events: none;
     transition: .5s;
@@ -91,7 +119,7 @@ section {
 .input-box input:focus~label,
 .input-box input:valid~label {
     top: -5px;
-    color: #007bff; /* Lighter blue when focused/valid */
+    color: var(--color-label-focus);
 }
 
 /* Input Field Styling - Crucial for padding to make space for icons */
@@ -102,80 +130,77 @@ section {
     border: none;
     outline: none;
     font-size: 1em;
-    color: #333;
-    /* IMPORTANT: Adjusted padding for icons */
-    padding: 0 40px 0 40px; /* Top, Right, Bottom, Left. Increased left and right padding. */
-    box-sizing: border-box; /* Ensures padding is included in the element's total width */
+    color: var(--color-input-text);
+    padding: 0 40px 0 40px;
+    box-sizing: border-box;
 }
 
 /* General Icon Styling (shared properties) */
-/* This rule now only sets shared properties, NOT positioning */
 .input-box .icon {
-    position: absolute; /* Keep absolute positioning here */
-    color: #0056b3; /* Blue icon color */
+    position: absolute;
+    color: var(--color-login-heading); /* Blue icon color */
     font-size: 1.2em;
-    line-height: 50px; /* Vertically centers the icon based on input height */
-    top: 50%; /* Added for vertical centering consistency */
-    transform: translateY(-50%); /* Added for vertical centering consistency */
-    z-index: 10; /* Ensure icons are above the input */
+    line-height: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
 }
 
 /* Specific Styling for the Lock Icon (left side) */
 .input-box .icon:not(.password-toggle) {
-    left: 10px; /* Position the lock icon on the left */
-    right: auto; /* Ensure it doesn't try to go right */
+    left: 10px;
+    right: auto;
 }
 
 /* Specific Styling for the Password Toggle (eye icon, right side) */
 .input-box .icon.password-toggle {
     position: absolute;
-    right: 10px; /* Position the eye icon on the right */
-    left: auto; /* Ensure it doesn't try to go left */
-    top: 50%; /* Position vertically centered */
-    transform: translateY(-50%); /* Adjust for perfect vertical centering */
-    cursor: pointer; /* Keep cursor pointer for interactivity */
-    color: #888; /* Icon color */
-    font-size: 1.2em; /* Adjust icon size */
-    z-index: 10; /* Ensure it's above the input */
+    right: 10px;
+    left: auto;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: var(--color-toggle-icon);
+    font-size: 1.2em;
+    z-index: 10;
 }
-
 
 /* Button Styling */
 .button1 {
     width: 100%;
     height: 45px;
-    background: #007bff; /* Manager login button blue */
+    background: var(--color-button-primary);
     border: none;
     outline: none;
-    border-radius: 10px; /* More rounded buttons */
+    border-radius: 10px;
     cursor: pointer;
     font-size: 1.1em;
-    color: #ffffff;
+    color: var(--color-button-text);
     font-weight: 600;
     transition: .3s ease;
     margin-top: 20px;
-    box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3); /* Blue shadow */
+    box-shadow: 0 5px 15px var(--color-button-shadow-light);
 }
 
 .button1:hover {
-    background: #0056b3; /* Darker blue on hover */
+    background: var(--color-button-primary-dark);
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(0, 123, 255, 0.4);
+    box-shadow: 0 8px 20px var(--color-button-shadow-dark);
 }
 
 /* Responsive Design for smaller screens */
 @media (max-width: 480px) {
     .login-box {
-        width: 90%; /* Make login box more fluid on small screens */
-        height: auto; /* Adjust height automatically */
+        width: 90%;
+        height: auto;
         padding: 20px 15px;
     }
 
     .input-box {
-        width: 100%; /* Full width for inputs */
+        width: 100%;
     }
 
-    #mainTitle {
+    #mainTitle1 { /* Changed from #mainTitle to #mainTitle1 as per your HTML */
         font-size: 1.8em;
         margin-bottom: 20px;
     }

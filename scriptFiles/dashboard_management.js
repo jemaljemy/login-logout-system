@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Display manager name from localStorage
-    document.getElementById('manager-name').textContent = `Manager (${loggedInUser})`;
+    document.getElementById('manager-name').textContent = ` ${loggedInUser} `;
 
     // Set default month filter to current month
     const today = new Date();

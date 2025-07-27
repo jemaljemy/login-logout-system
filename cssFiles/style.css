@@ -1,36 +1,50 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');  /* Imports the Poppins font from Google Fonts. Place at top of CSS to use 'Poppins' in font-family. */
+/* Import Google Fonts - Poppins for consistency */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+/* Define CSS Variables for Colors (using RGB/RGBA format) */
+:root {
+    /* General Colors */
+    --color-white: rgb(255, 255, 255);             /* #FFFF */
+    --color-black: rgb(0, 0, 0);                   /* #000 */
+    --color-black-text-shadow: rgba(0, 0, 0, 0.7); /* rgb(0,0,0,0.7) */
+    --color-input-icon-blue: rgb(0, 86, 179);      /* #0056b3 */
+    --color-password-toggle-grey: rgb(136, 136, 136); /* #888 */
+    --color-transparent-border: rgba(255, 255, 255, 0.5); /* rgb(255,255,255,5) - Adjusted to 0.5 for typical opacity */
+}
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins','sans-serif';
+    font-family: 'Poppins', 'sans-serif'; /* Ensure Poppins is used */
 }
 
 h1 {
-    color: #FFFF;
+    color: var(--color-white);
     font-size: 2.5em;
     font-weight: 700;
-    text-shadow: 2px 2px 4px rgb(0,0,0,0.7);
+    text-shadow: 2px 2px 4px var(--color-black-text-shadow);
+    margin-top: 110px;
 }
+
 section {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    justify-content: center;
+    justify-content: center; /* Corrected duplicate justify-content */
     align-items: center;
     width: 100%;
     height: 100vh;
-    background-image:  url('../img/army-salvation.jpg'),url('../img/bg.jpg');
-    background-position: top 20px center ,center center;
-    background-size: 170px auto, cover;
+    /* Background images and their properties are NOT colors, so they remain as is */
+    background-image: url('../img/army-salvation.jpg'), url('../img/bg.jpg');
+    background-position: top 10px center, center center;
+    background-size: 250px auto, cover;
     background-repeat: no-repeat, no-repeat;
-    background-color: #000;
-    animation: animateBg 5s linear infinite
+    background-color: var(--color-black); /* This can be a variable */
+    animation: animateBg 5s linear infinite;
 }
 
 @keyframes animateBg {
-    100%{
+    100% {
         filter: hue-rotate(360deg);
     }
 }
@@ -39,20 +53,20 @@ section {
     position: relative;
     width: 400px;
     height: 450px;
-    top: 130px;
+    top: 30px;
     background: transparent;
-    border: 2px solid rgb(255,255,255,5);
+    border: 2px solid var(--color-transparent-border); /* Using variable for transparent white border */
     border-radius: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    backdrop-filter: blur(15px);
+    backdrop-filter: blur(15px); /* This is a filter, not a color, so it remains as is */
 }
 
 h2 {
     font-size: 2em;
-    color: white;
+    color: var(--color-white);
     text-align: center;
 }
 
@@ -60,7 +74,7 @@ h2 {
     position: relative;
     width: 310px;
     margin: 30px 0;
-    border-bottom: 2px solid white;
+    border-bottom: 2px solid var(--color-white);
 }
 
 .input-box label {
@@ -69,7 +83,7 @@ h2 {
     left: 40px;
     transform: translateY(-50%);
     font-size: 1em;
-    color: white;
+    color: var(--color-white);
     pointer-events: none;
     transition: .5s;
 }
@@ -79,6 +93,7 @@ h2 {
     top: -5px;
     left: 5px;
 }
+
 .input-box input {
     width: 100%;
     height: 50px;
@@ -86,84 +101,73 @@ h2 {
     border: none;
     outline: none;
     font-size: 1em;
-    color: white;
+    color: var(--color-white);
     padding: 0 40px 0 40px;
 }
 
-
 /* General Icon Styling (shared properties) */
-/* This rule now only sets shared properties, NOT positioning */
 .input-box .icon {
-    position: absolute; /* Keep absolute positioning here */
-    color: #0056b3; /* Blue icon color */
+    position: absolute;
+    color: var(--color-input-icon-blue); /* Blue icon color */
     font-size: 1.2em;
-    line-height: 50px; /* Vertically centers the icon based on input height */
-    top: 50%; /* Added for vertical centering consistency */
-    transform: translateY(-50%); /* Added for vertical centering consistency */
-    z-index: 10; /* Ensure icons are above the input */
+    line-height: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
 }
 
 /* Specific Styling for the Lock Icon (left side) */
 .input-box .icon:not(.password-toggle) {
-    left: 10px; /* Position the lock icon on the left */
-    right: auto; /* Ensure it doesn't try to go right */
+    left: 10px;
+    right: auto;
 }
 
 /* Specific Styling for the Password Toggle (eye icon, right side) */
 .input-box .icon.password-toggle {
     position: absolute;
-    right: 10px; /* Position the eye icon on the right */
-    left: auto; /* Ensure it doesn't try to go left */
-    top: 50%; /* Position vertically centered */
-    transform: translateY(-50%); /* Adjust for perfect vertical centering */
-    cursor: pointer; /* Keep cursor pointer for interactivity */
-    color: #888; /* Icon color */
-    font-size: 1.2em; /* Adjust icon size */
-    z-index: 10; /* Ensure it's above the input */
+    right: 10px;
+    left: auto;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: var(--color-password-toggle-grey); /* Icon color */
+    font-size: 1.2em;
+    z-index: 10;
 }
 
-
-.button1 {
+.button1, .button2 { /* Combined for shared properties */
     width: 30%;
     height: 40px;
-    margin-left: 60px;
-    background: white;
+    background: var(--color-white);
     border: none;
     outline: none;
     border-radius: 40px;
     cursor: pointer;
     font-size: 1em;
-    color: black;
+    color: var(--color-black);
     font-weight: 500;
+}
+
+.button1 {
+    margin-left: 60px;
 }
 
 .button2 {
-    width: 30%;
-    height: 40px;
     margin-left: 15px;
-    background: white;
-    border: none;
-    outline: none;
-    border-radius: 40px;
-    cursor: pointer;
-    font-size: 1em;
-    color: black;
-    font-weight: 500;
-    
 }
 
 /* New positioning for #message, now that it's outside the section */
 #message {
-    position: absolute; /* Allows precise positioning relative to the body */
-    bottom: 60px; /* Position it from the bottom of the viewport */
-    left: 50%; /* Start from the middle horizontally */
-    transform: translateX(-50%); /* Shift it left by half its width to truly center */
-    width: 100%; /* Take full width to allow text-align: center */
-    max-width: 400px; /* Limit its width to match the login box */
-    text-align: center; /* Center the text inside the paragraph */
-    color: white; /* Ensure it's white (won't change now) */
-    font-size: 1.3em; /* Keep it larger */
-    font-weight: 700; /* Keep it bold */
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8); /* Keep the text shadow */
-    z-index: 100; /* Ensure it's on top of other elements if overlapping */
+    position: absolute;
+    bottom: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    color: var(--color-white);
+    font-size: 1.3em;
+    font-weight: 700;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8); /* This rgba value is unique, so it remains as is or can be another variable */
+    z-index: 100;
 }
