@@ -15,8 +15,8 @@ const MOCKED_PASSWORD = 'password';
     if (togglePassword) { // Ensure the element exists before adding listener
         togglePassword.addEventListener('click', () => {
             // Toggle the type attribute between 'password' and 'text'
-            const type = managerPasswordInput.getAttribute('type') === 'password' ? 'text' : 'password';
-            managerPasswordInput.setAttribute('type', type);
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
 
             // Toggle the eye icon (eye-outline for show, eye-off-outline for hide)
             const icon = togglePassword.querySelector('ion-icon');

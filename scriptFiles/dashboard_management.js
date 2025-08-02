@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     filterButton.addEventListener('click', () => {
-        const selectedMonth = monthFilterInput.value;
+        const selectedMonth = filterButton.value;
         if (selectedMonth) {
             fetchAndDisplayLogs(selectedMonth);
         } else {
