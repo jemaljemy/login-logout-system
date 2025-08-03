@@ -18,6 +18,7 @@
   "homepage": "https://github.com/jemaljemy/login-logout-system#readme",
   "description": "System that track login/logout sessions for the staff workers",
   "dependencies": {
-    "express": "^5.1.0"
+    "express": "^5.1.0",
+    "sqlite3": "^5.1.7"
   }
 }

@@ -8,9 +8,6 @@ const messageDisplay = document.getElementById('message');
 const togglePassword = document.getElementById('togglePassword'); // NEW: Get toggle icon
 
 
-const MOCKED_USERNAME = 'user';
-const MOCKED_PASSWORD = 'password';
-
    // Add event listener for the password toggle icon
     if (togglePassword) { // Ensure the element exists before adding listener
         togglePassword.addEventListener('click', () => {
@@ -36,36 +33,68 @@ function resetUI() {
     mainTitle.textContent = 'Welcome to Catherine Booth House';
 }
 
-staffActionForm.addEventListener('submit', (event) => {
+staffActionForm.addEventListener('submit', async (event) => {
     event.preventDefault();
     const username = usernameInput.value;
     const password = passwordInput.value;
-    if (username === MOCKED_USERNAME && password === MOCKED_PASSWORD) {
-        messageDisplay.style.color = 'lightgreen';
-        messageDisplay.textContent = `Login successful for ${username}!`;
-        mainTitle.textContent = `Welcome, ${username}!`;
-        setTimeout(resetUI, 3000); // Reset UI after 3 seconds
+
+    try {
+        const response = await fetch('/api/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ username, password })
+        });
+        const data = await response.json();
+
+        if (data.success) {
+            messageDisplay.style.color = 'lightgreen';
+            messageDisplay.textContent = data.message;
+            mainTitle.textContent = `Welcome, ${username}!`;
         } else {
             messageDisplay.style.color = 'red';
-            messageDisplay.textContent = 'Invalid username or password.';
-            passwordInput.value = '';
-            setTimeout(resetUI, 3000);
+            messageDisplay.textContent = data.message;
         }
-    });
-
-logoutButton.addEventListener('click', () => {
-    const username = usernameInput.value; // Get username value for logout verification
-    const password = passwordInput.value; // Get password value for logout verification
-
-    if (username === MOCKED_USERNAME && password === MOCKED_PASSWORD) {
-        messageDisplay.style.color = 'lightgreen';
-        messageDisplay.textContent = 'You have successfully logged out!';
-        setTimeout(resetUI, 3000); // Reset UI after 3 seconds
-    } else {
+    } catch (error) {
+        console.error('Error:', error);
         messageDisplay.style.color = 'red';
-        messageDisplay.textContent = 'Invalid username or password for logout.';
-        passwordInput.value = ''; // Clear password on failure
-        setTimeout(resetUI, 3000);
+        messageDisplay.textContent = 'Failed to connect to the server.';
     }
+    // Keep the timeout to reset the UI after the message is shown
+    setTimeout(resetUI, 3000);
 });
+
+logoutButton.addEventListener('click', async () => {
+    const username = usernameInput.value; // Get the username for the logout request
+    
+    try {
+        const response = await fetch('/api/logout', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ username })
+        });
+        const data = await response.json();
+        
+        if (data.success) {
+            messageDisplay.style.color = 'lightgreen';
+            messageDisplay.textContent = data.message;
+        } else {
+            messageDisplay.style.color = 'red';
+            messageDisplay.textContent = data.message;
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        messageDisplay.style.color = 'red';
+        messageDisplay.textContent = 'Failed to connect to the server.';
+    }
+    // Keep the timeout to reset the UI after the message is shown
+    setTimeout(resetUI, 3000);
+});
+
+
+
+
 document.addEventListener('DOMContentLoaded', resetUI);
