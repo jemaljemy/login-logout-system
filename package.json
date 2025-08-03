@@ -16,5 +16,8 @@
     "url": "https://github.com/jemaljemy/login-logout-system/issues"
   },
   "homepage": "https://github.com/jemaljemy/login-logout-system#readme",
-  "description": "System that track login/logout sessions for the staff workers"
+  "description": "System that track login/logout sessions for the staff workers",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
 }
